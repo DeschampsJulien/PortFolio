@@ -1,0 +1,158 @@
+/* @import doit être placé en début de css */
+@import url('_h1.css');
+/*Importation d'une police d'écriture "Roboto" avec Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+/*Impotation d'une police d'écriture "Rachel Brown" avec Dafont*/
+@font-face {
+    font-family: "Rachel Brown";
+    src: url('../fonts/RachelBrown.woff');
+    src: url('../fonts/RachelBrown.ttf') format ('truetype'),
+    url('../fonts/RachelBrown.otf') format('opentype');
+}
+*{
+    color: brown;
+}
+h2{
+    background-color:aqua ;
+    color:blue;
+}
+h3{
+    background-color: chartreuse;
+    color: green;
+}
+p{
+    color: black;
+}
+a{
+    text-decoration: none;
+}
+
+/* Famille: font-family */
+.sherif{
+    font-family: serif;
+}
+.sans-sherif{ 
+    font-family: sans-serif;
+}
+.rachelbrown{
+    font-family: "Rachel Brown", serif;
+}
+.kablammo{
+    font-family: "Kablammo";
+}
+
+/* Taille: font-size */
+.em{
+    font-size: 1.5em;
+}
+.rem{
+    font-size: 1.5rem;
+}
+
+/* "font-style" */
+.italic{
+    font-style: italic;
+}
+.oblique{
+    font-style: oblique;
+}
+.bold{
+    font-weight: bold;
+}
+.t900{
+    font-weight: 900;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.capitalize{
+    text-transform: capitalize;
+}
+.underligne{
+    text-decoration:underline;
+}
+.overline{
+    text-decoration: overline;
+}
+.line-through{
+    text-decoration: line-through;
+}
+
+/* Mettez en forme votre texte */
+.article{
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    margin: auto;
+    overflow: auto;       
+}
+.article__text{
+    color: gold;
+    text-align: center;
+    line-height: 20px;
+    letter-spacing: 10px;
+    word-spacing: 20px;
+    text-indent: 100px;
+    padding: 15px;   
+}
+
+/* Lorem: faux texte employé dans la composition et la mise en page "utilisation text-shadow" */
+.text-shadow{
+    text-shadow: 5px 5px 5px gray;
+}
+
+/* border "utilisation de grid" */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+.grid__block1{
+    border: 2px dotted red;
+}
+.grid__block2{
+    border: 2px solid red;
+    border-radius: 5px;
+}
+.grid__block3{
+    border: 2px dashed red;
+    border-radius: 5px;
+}
+.grid__block4{
+    border: 2px solid red;
+    box-shadow: 5px 5px; 
+}
+.grid__block5{
+    border: 2px solid red;
+    box-shadow: 5px 5px 5px black; 
+}
+.grid__block6{
+    border-left: 2px  solid black;  
+    border-bottom: 2px  solid black; 
+}
+.grid__block7{
+    border: 1px solid black;
+    grid-column: 3/5;
+}
+.grid__block8{
+    border: 1px solid black;
+    grid-row: 3/5;
+    grid-column: 1/3;
+   
+}
+
+
+/* Photo redimensionnée et travail de bordure */
+figure{
+    width: 200px;
+    height: 200px;
+}
+.img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 60px black, 30px 0 60px grey;
+}

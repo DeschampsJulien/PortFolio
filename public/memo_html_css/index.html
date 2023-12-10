@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <!-- Elle spécifie l’encodage des caractères utilisés dans le document HTML.....
+    On la place dès le début de la balise <head> avant tout autre balise <meta>. UTF-8 est à privilégier. -->
+    <meta charset="UTF-8">
+
+    <!-- Elle indique de manière concise de quoi traite la page. Elle est visible dans les résultats des moteurs de recherche.
+    On voit donc toute son importance, car c’est en la lisant que le visiteur va choisir ou non de se rendre sur votre page.
+    Sa longueur doit être comprise entre 150 et 155 caractères. Elle doit être constituée de phrases bien construites et non d’une suite de mots-clés. -->
+    <meta name="descrition" content="Liste et explications des principale balise HTML">
+
+    <!-- Si cette balise n’est plus utilisée par Google, d’autres moteurs de recherche l’utilisent encore. Il s’agit de donner une liste de mots-clés pertinents par rapport à la page pour aider au référencement.
+    Son utilisation est aujourd’hui encore beaucoup discutée et discutable. -->
+    <meta name="keywords" content="balise, attribut, navigation, texte, sémantique, tableaux, images ">
+
+    <!-- Elle permet de spécifier aux robots la façon dont chaque page doit être indexée ou non dans les résultats de recherche.
+    Il existe différentes valeurs dont les principales: noindex : ne pas indexer la page        
+                                                        index : indexer la page
+                                                        follow : suivre les liens contenus dans la page
+                                                        nofollow : ne pas suivre les liens contenus dans la page
+                                                        none : raccourci pour noindex et nofollow -->
+    <meta name="robots" content="noindex">
+
+    <!-- Elle permet de donner des instructions relatives à la taille et à l’échelle du viewport* aux navigateurs mobiles afin que les différents éléments d’une page s’affichent au mieux.
+    L’attribut « content » va prendre plusieurs propriétés: width et height : permet de contrôler la taille du viewport dans lequel notre page doit s’afficher
+                                                                              user-scalable : permet à l’utilisateur de zoomer dans la page
+                                                                              initial-scale : permet de définir de niveau de zoom initial du viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- balise "titre" conseiller de ne pas dépasser les 70 caractères. Elle doit être représentative du contenu de la page et 
+    contenir des mots-clés importants et pertinents. -->
+    <title>Tutoriel balises HTML</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    
+    <!-- <header> représente du contenu introductif, aidant à la navigation. -->
+    <header>
+
+        <!-- Pour un bon référencement, utiliser qu’un seul <h1> par page et par la suite garder une logique hiérarchique.
+             C’est-à-dire que l’on fera suivre un h1 par un h2 et non par un h3. -->
+            <h1>Tutoriel balises HTML</h1>
+
+            <h2>Balises de navigation</h2>
+
+        <!-- <nav> généralement au sein du <header> ou du <footer>, on y place le menu de navigation. -->
+        <nav>
+
+            <h3>Navigation Balises liste non-ordonnée ou ordonnée "ul" ou "ol" et "li"</h3>
+
+            <!-- Dans une liste non ordonnée, il n’y a pas de notion d’ordre entre les éléments. -->
+            <ul>
+                <li>Acceuil</li>
+                <li>Produits</li>
+                <li>Solutions</li>
+                <li>Entreprise</li>
+            </ul> 
+
+            <!-- Une liste ordonnée dispose de plusieurs attributs intéressants
+            attribut <ol reversed> decompte a l'envers-->
+            <ol type="I" start="2">
+                <li>Acceuil</li>
+                <li>Produits</li>
+                <li value="10">Solutions</li>
+                <li>Entreprise</li>
+            </ol> 
+
+            <!-- Il est tout à fait possible d’insérer une liste dans une liste, qu’elle soit ordonnée ou non. -->
+            <ul>
+                <li>Menu Acceuil
+                    <ol type="A">
+                        <li>Sous-menu</li>
+                        <li>Sous-menu</li>
+                    </ol>
+                </li>  
+                <li>Menu Produit
+                    <ol type="A">
+                        <li>Sous-menu</li>
+                        <li>Sous-menu</li>
+                    </ol>
+                </li>  
+            </ul>
+        </nav>
+
+        <h3>Navigation Balise "a" Attribut "href" et "target"</h3>
+
+        <nav>
+            <ul>
+                <!-- "href" Destination du lien. -->
+                <!-- "target" Précise où le lien doit être ouvert, il peut prendre les valeurs:
+        
+                    Attribut « _blank » pour ouvrir dans une nouvelle fenêtre ou un nouvel onglet.
+                    « _self » pour ouvrir dans la fenêtre courante. En réalité, on n’utilise jamais « _self », car c’est le comportement par défaut, donc autant économiser des lignes de code.
+                    « _parent » : pour ouvrir dans le contexte de navigation parent à celui en cours. Si aucun parent n’existe, alors ça revient à écrire « _self ».
+                    « _top » : pour ouvrir dans le contexte de navigation le plus haut (parent, grand-parent, etc.). S’il n’y a pas d’ancêtre, alors ça revient à écrire « _self ». -->
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" target="_blank">Website</a>Attribut target="_blank" pour ouvrir dans une nouvelle fenêtre ou un nouvel onglet.</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" target="_parent">Website</a>attribut target="_parent" pour ouvrir dans le contexte de navigation parent à celui en cours. Si aucun parent n’existe, alors ça revient à écrire "_self".</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" target="_self">Website</a>Attribut target="_self" pour ouvrir dans la fenêtre courante sur le même onglet (comportement par défaut), donc autant économiser des lignes de code.</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" target="_top">Website</a>Attribut target="_top" pour ouvrir dans le contexte de navigation le plus haut (parent, grand-parent, etc.). S’il n’y a pas d’ancêtre, alors ça revient à écrire "_self".</li>
+            </ul>
+
+            <h3>Navigation Balise "a" Attribut "download"</h3>
+
+            <ul>
+                <!-- « download » : il permet de forcer le téléchargement d’un fichier. -->
+                <li><a download="nouveaunom.pdf">Website </a></li>
+            </ul>
+
+            <h3>Navigation Balise "a" Email</h3>
+
+            <ul>
+                <!-- "mailto" suivi de l'adresse e-mail à utiliser -->
+                <li><a href="mailto:jdeschamps34@yahoo.fr">jdeschamps34@yahoo.fr</a></li>
+            </ul>
+            
+            <h3>Navigation Balise "a" Phone</h3>
+
+            <ul>
+                <!-- "tel" suivi du numéro à utiliser -->
+                <li><a href="tel:0625047486">0625047486</a></li>
+            </ul>
+        
+            <h3>Ancre Attribut "id"</h3>
+        
+            <ul>
+                <!-- Comme id= « news » alors href=« #news » . Au clic sur le lien, la page scrollera jusqu'à arriver à la section news. -->
+                <li><a href="#bottom">Lien bas de page</a></li>
+                <!-- <footer id="bottom"></footer> -->
+            </ul>
+        </nav>
+
+        <h3>Navigation Balise "a" Attribut "href"</h3>
+
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="./pages/portfolio.html">Portfolio</a></li>
+                <li><a href="./pages/contact.html">Contact</a></li>
+                <li><a href="./documents/CV.pdf" target="_blank">CV</a></li>
+                <li><a href="./pages/archives/formations.html" target="_blank">Formations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <!-- Balise <main> définie la zone de votre page qui possède le contenu principale. -->
+    <main>
+
+        <!-- Balise <section> permet de découper le contenu principale en différente zones. -->
+        <section>
+
+            <h2>Balises insertion d'images, de videos et de sons</h2>
+
+            <h3>Balises image "img" Attribut "src" "atl" et "title"</h3>
+
+            <!-- Attribut "src" dans lequel on insère la source de l’image à afficher. -->
+            <!-- Attribut "alt" comme texte ALTernatif. Il doit contenir la décrition du contenu de l’image. 
+            Ce texte sera affiché si l’image ne peut pas être affichée ou sera lu par les lecteurs d’écran qu’utilisent les personnes non-voyantes. 
+            Il est aussi utilisé par les moteurs de recherche comme Google Images. Il est OBLIGATOIRE. -->
+            <img width="130" height="182" src="./images/photo_julien_deschamps.jpg" alt="Photos de Julien Deschamps" title="Julien Deschamps">
+
+            <h3>Balise "figure" avec une balise "img" et une légende avec la balise "figcaption"</h3>
+
+            <!-- Afin de lier notre image à une légende on utilise la balise <figure>. La légende est insérée dans la balise <figcaption>. -->
+            <figure>
+                <img width="130" height="182" src="./images/photo_julien_deschamps.jpg" alt="Photos de Julien Deschamps" title="Julien Deschamps">
+                <figcaption>Julien Deschamps</figcaption>
+            </figure>
+
+            <h3>Balises de video "video" Attribut "src" et "type"</h3>
+
+            <!-- On préférera alors souvent l’insertion directe depuis un service en ligne comme YouTube ou Viméo. -->
+            <video src=""></video>
+
+            <video>
+                <source src="" type="">
+            </video>
+
+            <h3>Insertion d'une video via YouTube et Dailymotion</h3>
+
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BdBRuHuUhJo?si=ah9ERPt5heyKboIX" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"> 
+                <iframe style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden" type="text/html" src="https://www.dailymotion.com/embed/video/x8od997" width="100%" height="100%" allowfullscreen title="Dailymotion Video Player" ></iframe>
+            </div>
+            
+            
+            <h3>Balises de audio "audio" Attribut "src" et type</h3>
+
+            <!-- On a ici la même problématique de format qu’avec la balise <video>. 
+            C’est pour cette raison qu’on insère souvent les contenus audio directement depuis 
+            des services comme SoundCloud ou Apple Podcasts. -->
+            <audio src=""></audio>
+            
+            <audio>
+                <source src="" type="">
+            </audio>
+
+            <h3>Insertion d'un audio via SoundCloud</h3>
+
+            <iframe width="100%" height="200" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/243325214&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+            <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                <a href="https://soundcloud.com/renaud-official" title="Renaud" target="_blank" style="color: #cccccc; text-decoration: none;">Renaud</a> · <a href="https://soundcloud.com/renaud-official/sets/50-belles-chansons" title="50 + belles chansons" target="_blank" style="color: #cccccc; text-decoration: none;">50 + belles chansons</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+
+            <h2>Balise Insertion un formulaire</h2>
+
+            <h3>Balise formulaire simple "form" et "input" Attribut "action" et "method"</h3>
+
+            <!-- Attribut "action" adresse du fichier qui va traiter notre formulaire après soumission.
+            Attribut "method" indique comment les données sont envoyées à notre fichier de traitement. Il peut prendre la valeur:
+            "get" les données seront envoyées via l’URL de la page,
+            "post" les données ne transitent pas par l’URL. On préfère cette méthode qui est plus sûre et permet d’envoyer plus d’information. -->
+            
+            <form action="#" method="post">
+
+                <input type="password" placeholder="Password">
+                <input type="id" placeholder="Identifiant">
+                <input type="text"  value="Julien Deschamps"><br>
+
+            <!-- Attribut "name" nom du champ. Il sera utile lors du traitement des données afin d’identifier individuellement chaque champ du formulaire. N’oubliez jamais de spécifier cet attribut.
+            Attribut "id" identifiant du champ au sein de la page. Il nous sera utile pour relier le champ avec son nom (label). -->
+                <textarea name="about" id="about" cols="25" rows="5">Texte..................................</textarea>
+            </form>
+
+            <form action="#" method="post">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0">
+            </form>
+
+            <!-- attribut « value » pour représenter la valeur à envoyer au fichier de traitement. -->
+            <form action="#" method="post">
+                <input type="checkbox" id="cgv" name="cgv" value="cgvAccepte">
+                <label for="cgv">j'accepte les CGV</label>
+            </form>
+
+            <h3>Balise formulaire choix multiple "fieldset"</h3>
+
+            <!-- Pour une liste à choix multipe, utilisation attribut type="checkbox". -->
+            <fieldset>
+                <legend>Vos couleurs préférées</legend>
+                <input type="checkbox" id="red" name="color" value="red">
+                <label for="red">Red</label>
+
+                <input type="checkbox" id="blue" name="color" value="blue">
+                <label for="blue">Blue</label>
+
+                <input type="checkbox" id="green" name="color" value="green">
+                <label for="green">Green</label>
+            </fieldset>
+
+            <!-- Pour une liste à choix unique, le principe est exactement le même mais on utilise le type="radio" à la place du type "checkbox". -->
+            <fieldset>
+                <legend>Vos couleurs préférées</legend>
+                <input type="radio" id="red" name="color" value="red">
+                <label for="red">Rouge</label>
+
+                <input type="radio" id="blue" name="color" value="blue">
+                <label for="blue">Bleu</label>
+
+                <input type="radio" id="green" name="color" value="green">
+                <label for="green">Vert</label>
+            </fieldset>
+
+            <h3>Balises liste déroulante "select" et "option"</h3>
+
+            <form action="#" method="post">
+                <label for="color">Choix de la couleur</label>
+                <select name="color" id="color"><!--rajouter <multiple> pour un choix multiple--> 
+                    <option value disabled selected>Choix de couleur</option>
+                    <option value="red">Rouge</option>
+                    <option value="blue">Bleu</option>
+                    <option value="green">Vert</option>
+                    <option value="Yellow">Jaune</option>
+                </select>
+            </form>
+
+            <h3>Balises soumettre un formulaire "input" ou "button"</h3>
+
+            <!-- <form action="#" method="post">
+                <input type="submit" value="Soumettre"> 
+            </form> -->
+
+            <!-- <form action="#" method="post">
+                <button type="submit">Soumettre le formulaire</button>
+            </form> -->
+        </section>
+
+        <section>
+
+            <h2>Balises de texte avec sémantiques</h2>
+
+            <h3>Balises de mise en evidence "strong" et "em"</h3>
+
+            <p>
+                <!-- Balise <strong> permet de mettre en évidence un morceau de texte de haute importance. -->
+                <strong>Balise "strong" permet de mettre en évidence un morceau de texte de haute importance</strong><br>
+        
+                <!-- Balise <em> permet de mettre en évidence un texte important (un peu moins qu’avec <strong>). --> 
+                <em>Balise "em" permet de mettre en évidence un texte important (un peu moins qu’avec "strong")</em>
+            </p>
+
+            <h3>Balise de citation "q"</h3>
+
+            <!-- Pour insérer une citation courte dans une ligne de texte, on utilise la balise <q> comme "quote". -->
+            <p>Balise "q" pour insérer une citation courte dans une ligne de texte, ainsi <q>la vie n'est pas un fleuve tranquille</q></p>
+
+            <h3>Balises de citation "blockquote" et "cite"</h3>
+
+            <!-- Pour une citation plus longue nécessitant des sauts de paragraphe, on utilisera la balise
+            comme « bloc de citation » -->
+            <blockquote cite="https://www.canva.com/fr_fr/decouvrir/citation-positive/">
+                Le courage n'est pas l'absence de peur, mais la capacité de vaincre ce qui fait peur. 
+                La beauté est dans les yeux de celui qui regarde. Fais de ta vie un rêve, et d'un rêve, une réalité. 
+                Le souvenir, c'est la présence invisible.
+
+                <!-- Il existe aussi un attribut « cite » qui permet de donner la source de la citation, mais il n’est pas obligatoire. -->
+                <cite>Balise "cite" permet de donner la source de la citation</cite>
+            </blockquote>
+            
+            <h3>Balises d'informations de contact "address"</h3>
+
+            <!-- La balise < address > permet d’encadrer les informations de contact d’une personne ou d’une entreprise. -->
+            <address>
+                <p>Julien Deschamps</p>
+                <P><a href="https://www.google.com/search?q=62+boulevard+victor+hugo+frontignan&rlz=1C1GCEA_enFR1058FR1058&oq=62+boulevard+victor+hugo+34110fron&gs_lcrp=EgZjaHJvbWUqCQgBECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKABMgkIBBAhGAoYoAHSAQkxNjQ5OGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8" target="_blank">62 Boulevard Victor Hugo 34110 Frontignan</a></P>
+                <p><a href="mailto:jdeschamps34@yahoo.fr">jdeschamps34@yahoo.fr</a></p>
+                <p><a href="tel:0625047486">0625047486</a></p>
+            </address>
+
+            <h3>Balises date et/ou heure "time" attribut "datetime"</h3>
+
+            <!-- La balise < time > permet de baliser sémantiquement une date ou une heure. 
+            On peut l’utiliser pour donner l’heure d’un événement ou la date de publication d’un contenu.
+            Elle prend un attribut « datetime » qui permet d’associer une heure et/ou une date à son contenu.
+            Sa valeur doit respecter un format bien précis que l’on retrouve dans la documentation officielle. -->
+            <p>Cette page a été écrite le <time datetime="2023-09-28">28/09/2023</time></p>
+
+            <h3>Balises pour traduire des donner "data" </h3>
+
+            <!-- La balise < data > permet de traduire la donnée qu’elle contient dans un format lisible dans le cas
+            où les données devraient être traitées par un script. Elle permet de faire la différence entre ce qu’on montre au visiteur 
+            et ce qu’on montre à l’ordinateur. Elle prend un attribut « value » dans lequel on insère la valeur pour l’ordinateur -->
+            <p><data value="red">Balise rouge</data></p>
+            <p><data value="blue">Balise bleu</data></p>
+            <p><data value="green">Balise vert</data></p>
+
+            <h3>Balises exposants "sup" et des indices "sub"</h3>
+
+            <!-- Essentiellement utilisées en mathématiques, il est utile de connaître les deux balises suivantes -->
+            <p>Balise "sup" exemple X<sup>2</sup></p>
+            <P>Balise "sub" exemple H<sub>2</sub>O</P>
+
+            <h3>Balise insertion et suppréssion du texte</h3>
+
+            <p>
+                <!-- <ins> : qui représente l’insertion.
+                 <del> : qui représente la suppression d’un morceau de texte au sein du document.
+                 <s> : qui représente un texte obsolète.
+                 <u> : En cas de fautes d’orthographe, de grammaire ou pour indiquer des noms propres chinois. -->
+                Balise "del" <del>représente la suppression d’un morceau de texte</del> a l'inverse la balise "ins" <ins>représente l’insertion.</ins><br>
+                Deplus la balise "s" <s>représente un texte obsolète</s> et donc à corriger<br>
+                Pour finir la balise "u" <u>En cas de fautes d’orthographe, de grammaire ou pour indiquer des noms propres chinois.</u>
+            </p>
+
+            <h3>Balise formater le texte "pre"</h3>
+
+            <!-- Par défaut, tous les espaces (en dehors de ceux des phrases) et les sauts de ligne ne sont pas
+            interprétés par le navigateur. Il est possible de contourner cette problématique en utilisant la balise < pre >. -->
+            <pre>
+                    Balise "pre"        prend en conte tous     les espaces
+                                et les sauts de lignes.
+            </pre>
+
+            <h3>Balise "code" informatique</h3>
+
+            <!-- Il existe aussi une balise permettant de traduire l’insertion d’un morceau de code informatique. 
+            Il s’agit de la balise < code >. Le code présent dans cette balise ne sera pas exécuté, 
+            elle permet seulement de typer sémantiquement ce type de contenu. -->
+            <p>
+                La balise "code" permet l'insertion d’un morceau de code informatique dans un texte <br> 
+                Exemple: En PHP une variable se déclare <code>$var=""</code> et pas autrement.
+            </p> 
+            
+            <h2>Balises de texte sans sémantiques</h2>
+
+            <p> 
+                <!-- Balise <b> texte en gras, sans valeur sémantique -->
+                <b>La balise "b" texte en gras, sans valeur sémantique</b><br>
+
+                <!-- Balise <i> texte en italique, sans valeur sémantique -->
+                <i>La balise "i" texte en italique, sans valeur sémantique</i><br> 
+
+                <!-- Balise <mark> texte surligné, sans valeur sémantique -->
+                <mark>La balise "mark" texte surligné, sans valeur sémantique</mark><br>
+            </p> 
+        </section>
+
+        <h2>Balise de listes et de tableaux</h2>
+
+        <section>
+
+            <h3>Balises liste de descrition (glossaire) "dl" "dt" et "dd"</h3>
+
+            <!-- Balise <dl></dl> (Description list) et utiliserons les éléments <dt></dt> (le terme) et <dd></dd> (sa définition). -->
+            <dl>
+                <dt>HTML</dt>
+                <dd>Langage de balisage utilisé pour la création de pages web, permettant notamment de définir des liens hypertextes.</dd>
+                <dt>CSS</dt>
+                <dd>
+                    CSS est l'acronyme de « Cascading Style Sheets » ce qui signifie « feuille de style en cascade ».<br>
+                    Le CSS correspond à un langage informatique permettant de mettre en forme des pages web (HTML ou XML).
+                </dd>
+            </dl>
+    
+            <h3>Balises création d'un tableau "table"</h3>
+    
+            <table>
+
+                <caption>Titre du tableau</caption>
+
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Age</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Deschamps</td>
+                        <td>Julien</td>
+                        <td>46</td>
+                        <td>
+                            <a href="#">Modifier</a><br>
+                            <a href="#">supprimer</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Convers</td>
+                        <td>Sandrine</td>
+                        <td>51</td>
+                        <td>
+                            <a href="#">Modifier</a><br>
+                            <a href="#">supprimer</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Maritano</td>
+                        <td>Marie</td>
+                        <td>18</td>
+                        <td>
+                            <a href="#">Modifier</a><br>
+                            <a href="#">supprimer</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dubichon</td>
+                        <td>Isis</td>
+                        <td>11</td>
+                        <td>
+                            <a href="#">Modifier</a><br>
+                            <a href="#">supprimer</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Age</th>
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <h1>Tutoriel style et police d'écriture</h1>
+
+        <section>
+            
+            <h2>Famille: font-family</h2>
+
+            <!-- La propriété « font-family » permet de définir la police de caractères à appliquer aux éléments sélectionnés. Le navigateur n’appliquera la police que s’il la connait. -->
+            <p class="sherif">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi inventore, dolorum quisquam explicabo a animi rem amet odit quo, quaerat dolorem? Nesciunt nemo facere velit culpa, recusandae nostrum aliquam. Dolore?</p>
+            <p class="sans-sherif">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate optio accusamus eius, recusandae vel quaerat quos ea mollitia totam sunt dicta. Ipsam perspiciatis ducimus molestias architecto quae facilis, aliquam atque!</p>
+            <p class="rachelbrown">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque maiores numquam voluptate! Consectetur, eum! A tempora ducimus commodi fugit enim! Dignissimos autem laboriosam placeat ipsa! Necessitatibus consequatur iusto ex harum?</p>
+            <p class="kablammo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quae similique porro sint ratione vero beatae omnis reprehenderit modi vitae veritatis accusamus obcaecati sequi voluptatem minima, dolor, expedita fugiat suscipit?</p>
+            <!-- Afin d’éviter tout problème d’affichage, on peut fournir plusieurs polices à la propriété « font-family » (c’est même très recommandé) -->
+        
+            <h2>Taille: font-size</h2>
+
+            <!-- Afin de rendre le site responsive et accessible plus facilement, on préfèrera em et rem -->
+            <p class="em">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab illo, labore dolores nam voluptatem cum quia! Porro blanditiis ipsum molestias rerum, nisi aut aliquid, commodi, laborum illum aliquam ipsa eveniet!</p>
+            <p class="rem">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi sunt numquam fugit! Ut dolorem optio, laudantium fugiat doloribus nulla sit rem officia delectus exercitationem numquam voluptatum itaque recusandae saepe nemo.</p>
+        
+            <h2>Style</h2>
+
+            <h3>"font-style"</h3>
+
+            <p class="italic">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab mollitia quidem illo sit veritatis iure eum dolorum aliquam at vero accusamus repellendus ducimus repellat harum explicabo velit, sed ut quo.</p>
+            <p class="oblique">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae totam odio voluptate consequuntur consequatur suscipit deleniti amet fugit minus placeat dicta, necessitatibus officia modi, dolores reiciendis, eius sunt neque voluptatem.</p>
+        
+            <h3>"font-weight"</h3>
+
+            <p class="bold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo delectus dolorum, ipsa, neque minus vitae praesentium aut qui labore et officiis corporis animi eius, molestias dicta quae maxime numquam quam?</p>
+            <p class="t900">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus quibusdam quidem. Voluptatem molestias voluptatum minima quidem temporibus quasi vitae laudantium quae delectus nulla, officia eaque iusto alias, eveniet neque.</p>
+        
+            <h3>text-transform</h3>
+
+            <p class="uppercase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab dignissimos magni aperiam tenetur, veniam, dolores delectus pariatur facilis accusamus sint odit! Quibusdam expedita nisi delectus sint, nemo sunt praesentium impedit?</p>
+            <p class="capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sed quo et obcaecati, dolorum odit quod ex qui culpa voluptatum porro similique a, repellat nihil distinctio quibusdam dolores iste magni?</p>
+        
+            <h3>text-decoration</h3>
+
+            <p class="underligne">Lorem ipsum dolor sit amet consectetur adipisicing elit. A cumque aut vel itaque beatae, totam eius quaerat, debitis accusamus sint ducimus rem ullam placeat! Sint illo laborum impedit quaerat excepturi?</p>
+            <p class="overline">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat temporibus commodi atque ad quo, officia nemo amet vitae culpa porro dignissimos nisi aliquam cum, consequuntur deleniti ex quam quis. Dolorum.</p>
+            <p class="line-through">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit facere ex tempore nobis voluptatem, molestiae tenetur ab corporis rerum eaque vel temporibus quod voluptas ad, pariatur reiciendis ea illo consectetur.</p>
+        
+            <h3>Mettez en forme votre texte</h3>
+
+            <article class="article">
+                <p class="article__text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ex nam unde mollitia voluptas officiis deleniti vero at dolorum voluptates porro laudantium fugit ipsam, nulla id dolore nisi non laborum?
+                    Velit earum dolores accusantium neque labore asperiores, quam sunt ducimus culpa sint temporibus corrupti, recusandae veniam nobis corporis sequi dolorum repudiandae aperiam voluptate aspernatur. Quis doloribus error accusantium asperiores quaerat!
+                </p>
+            </article>
+
+            <h3>Lorem: faux texte employé dans la composition et la mise en page "utilisation text-shadow"</h3>  
+
+            <p class="text-shadow">
+                <span class="bold">Lorem</span> ipsum dolor sit amet, consectetur adipiscing elit. Integer metus ipsum, lacinia vel lacus sit amet, tempus fermentum ipsum. 
+                <span class="italic">Donec</span> in molestie ante. Vestibulum ut lobortis quam. Nunc ut sapien id lectus suscipit porta nec eu nulla. Fusce ac turpis pretium, blandit felis fringilla, finibus dolor. Quisque malesuada elementum viverra. Cras rutrum felis eget laoreet interdum. Etiam interdum nisl sit amet luctus accumsan. Integer id porttitor magna. Phasellus rhoncus tellus lectus. 
+                <span class="italic">Donec</span> semper, sapien vitae commodo volutpat, orci elit dapibus tellus, quis sollicitudin 
+                <span class="bold">lorem</span> diam id lectus. 
+                <span class="italic">Donec</span> nec enim mauris. Maecenas in erat sapien. Nam congue metus accumsan, vulputate ligula in, elementum 
+                <span class="bold">lorem</span>.   
+            </p>   
+            <p>Pour en savoir plus, cliquez <a href="#">ici</a></p> 
+        </section>
+
+        <h2>border "utilisation de grid"</h2>
+
+        <section class="grid">
+            <div class="grid__block1">Block1</div>
+            <div class="grid__block2">Block2</div>
+            <div class="grid__block3">Block3</div>
+            <div class="grid__block4">Block4</div>
+            <div class="grid__block5">Block5</div>
+            <div class="grid__block6">Block6</div>
+            <div class="grid__block7">Block7</div>
+            <div class="grid__block8">Block8</div>
+            <div class="grid__block9">Block9</div>
+            <div class="grid__block10">Block10</div>
+            <div class="grid__block11">Block11</div>
+            <div class="grid__block12">Block12</div>
+        </section>
+
+        <h2>Photo redimensionnée "travail de bordure et ombre"</h2>
+
+        <figure>
+            <img class="img" src="./images/photo_julien_deschamps.jpg" alt="Julien Deschamps">
+        </figure>
+
+    </main>
+    <footer id="bottom">
+        <!-- La balise <small> permet de définir du contenu secondaire comme des annotations, des copyrights, des mentions légales, etc. -->
+        <small>Copyright 2023</small>
+    </footer> 
+</body>
+</html>
